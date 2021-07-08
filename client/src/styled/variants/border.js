@@ -2,7 +2,7 @@ import { borderwidth } from 'styled/spacing'
 
 const borderArr = ['0', '2', '4', '8', 'base']
 
-export const $border = props => {
+const $border = props => {
 	if (props === true) {
 		return `
 			border: ${borderwidth['base']} solid;
@@ -14,7 +14,7 @@ export const $border = props => {
 	}
 }
 
-export const $borderT = props => {
+const $borderT = props => {
 	if (props === true) {
 		return `
 			border-top: ${borderwidth['base']} solid;
@@ -26,7 +26,7 @@ export const $borderT = props => {
 	}
 }
 
-export const $borderR = props => {
+const $borderR = props => {
 	if (props === true) {
 		return `
 			border-right: ${borderwidth['base']} solid;
@@ -38,7 +38,7 @@ export const $borderR = props => {
 	}
 }
 
-export const $borderB = props => {
+const $borderB = props => {
 	if (props === true) {
 		return `
 			border-bottom: ${borderwidth['base']} solid;
@@ -50,7 +50,7 @@ export const $borderB = props => {
 	}
 }
 
-export const $borderL = props => {
+const $borderL = props => {
 	if (props === true) {
 		return `
 			border-left: ${borderwidth['base']} solid;
@@ -61,3 +61,18 @@ export const $borderL = props => {
 		`
 	}
 }
+
+const $borders = props => {
+	const notInB = !props.border
+	let border = ``
+
+	if (props.border) border += $border(props.border)
+	if (props.borderT && notInB) border += $borderT(props.borderT)
+	if (props.borderR && notInB) border += $borderR(props.borderR)
+	if (props.borderB && notInB) border += $borderB(props.borderB)
+	if (props.borderL && notInB) border += $borderL(props.borderL)
+
+	return border
+}
+
+export default $borders

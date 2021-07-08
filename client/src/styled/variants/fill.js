@@ -1,7 +1,7 @@
 import { white, black } from 'styled/colors'
 import { lighten, rgba, readableColor } from 'polished'
 
-export const $fill = props => {
+const $bgFill = props => {
 	if (props) {
 		return `
             color: ${readableColor(props, white, black, true)};
@@ -22,10 +22,7 @@ export const $fill = props => {
 	}
 }
 
-export const $borderfill = props => {
-	if (props) {
-		return `
-            border-color: ${props};
-        `
-	}
+const $fill = props => {
+	if (props.fill) return $bgFill(props.fill)
 }
+export default $fill

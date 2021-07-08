@@ -7,32 +7,32 @@ import {
 	$gridRowSpan,
 	$gridFlow,
 	$gridAutoCols,
-	$gridAutoRows,
-} from '@styled/variants/grid'
+	$gridAutoRows
+} from 'styled/variants/grid'
 
 export const Grid = styled(props => props.as)`
 	display: grid;
 
-	${({ gridCols }) => {
-		if (gridCols) return $gridCols(gridCols)
+	${({ cols }) => {
+		if (cols) return $gridCols(cols)
 	}}
-	${({ gridRows }) => {
-		if (gridRows) return $gridRows(gridRows)
+	${({ rows }) => {
+		if (rows) return $gridRows(rows)
 	}}
-	${({ gridColSpan }) => {
-		if (gridColSpan) return $gridColSpan(gridColSpan)
+	${({ colSpan }) => {
+		if (colSpan) return $gridColSpan(colSpan)
 	}}
-	${({ gridRowSpan }) => {
-		if (gridRowSpan) return $gridRowSpan(gridRowSpan)
+	${({ rowSpan }) => {
+		if (rowSpan) return $gridRowSpan(rowSpan)
 	}}
-	${({ gridFlow }) => {
-		if (gridFlow) return $gridFlow(gridFlow)
+	${({ flow }) => {
+		if (flow) return $gridFlow(flow)
 	}}
-	${({ gridAutoCols }) => {
-		if (gridAutoCols) return $gridAutoCols(gridAutoCols)
+	${({ autoCols }) => {
+		if (autoCols) return $gridAutoCols(autoCols)
 	}}
-	${({ gridAutoRows }) => {
-		if (gridAutoRows) return $gridAutoRows(gridAutoRows)
+	${({ autoRows }) => {
+		if (autoRows) return $gridAutoRows(autoRows)
 	}}
 	${({ gap }) => {
 		if (gap) return $gap(gap)

@@ -12,7 +12,7 @@ const shadowArr = [
 	'none'
 ]
 
-export const $shadow = props => {
+const $boxShadow = props => {
 	if (props === true) {
 		return `
 			box-shadow: ${boxshadow['base']};
@@ -23,3 +23,8 @@ export const $shadow = props => {
 		`
 	}
 }
+
+const $shadow = props => {
+	if (props.shadow) return $boxShadow(props.shadow)
+}
+export default $shadow

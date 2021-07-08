@@ -2,7 +2,7 @@ import { radius } from 'styled/spacing'
 
 const radiusArr = ['none', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl']
 
-export const $radius = props => {
+const $radius = props => {
 	if (props === true) {
 		return `
 			border-radius: ${radius['base']};
@@ -14,7 +14,7 @@ export const $radius = props => {
 	}
 }
 
-export const $radiusT = props => {
+const $radiusT = props => {
 	if (props === true) {
 		return `
 			border-top-left-radius: ${radius['base']};
@@ -28,7 +28,7 @@ export const $radiusT = props => {
 	}
 }
 
-export const $radiusR = props => {
+const $radiusR = props => {
 	if (props === true) {
 		return `
 			border-top-right-radius: ${radius['base']};
@@ -42,7 +42,7 @@ export const $radiusR = props => {
 	}
 }
 
-export const $radiusB = props => {
+const $radiusB = props => {
 	if (props === true) {
 		return `
 			border-bottom-right-radius: ${radius['base']};
@@ -56,7 +56,7 @@ export const $radiusB = props => {
 	}
 }
 
-export const $radiusL = props => {
+const $radiusL = props => {
 	if (props === true) {
 		return `
 			border-top-left-radius: ${radius['base']};
@@ -69,3 +69,17 @@ export const $radiusL = props => {
 		`
 	}
 }
+
+const $corners = props => {
+	const notInR = !props.radius
+	let radius = ``
+
+	if (props.radius) radius += $radius(props.radius)
+	if (props.radiusT && !notInR) radius += $radiusT(props.radiusT)
+	if (props.radiusR && !notInR) radius += $radiusR(props.radiusR)
+	if (props.radiusB && !notInR) radius += $radiusB(props.radiusB)
+	if (props.radiusL && !notInR) radius += $radiusL(props.radiusL)
+
+	return radius
+}
+export default $corners

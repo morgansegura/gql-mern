@@ -37,25 +37,16 @@ const spaceArr = [
 	'384'
 ]
 
-export const $m = props => {
-	if (props === true) {
-		return `
-			margin: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $m = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin: ${sp[props]};
 		`
 	}
 }
 
-export const $mx = props => {
-	if (props === true) {
-		return `
-			margin-right: ${sp[40]};
-			margin-left: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $mx = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin-right: ${sp[props]};
 			margin-left: ${sp[props]};
@@ -63,13 +54,8 @@ export const $mx = props => {
 	}
 }
 
-export const $my = props => {
-	if (props === true) {
-		return `
-			margin-top: ${sp[40]};
-			margin-bottom: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $my = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin-top: ${sp[props]};
 			margin-bottom: ${sp[props]};
@@ -77,50 +63,52 @@ export const $my = props => {
 	}
 }
 
-export const $mt = props => {
-	if (props === true) {
-		return `
-			margin-top: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $mt = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin-top: ${sp[props]};
 		`
 	}
 }
 
-export const $mr = props => {
-	if (props === true) {
-		return `
-			margin-right: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $mr = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin-right: ${sp[props]};
 		`
 	}
 }
 
-export const $mb = props => {
-	if (props === true) {
-		return `
-			margin-bottom: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $mb = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin-bottom: ${sp[props]};
 		`
 	}
 }
 
-export const $ml = props => {
-	if (props === true) {
-		return `
-			margin-left: ${sp[40]};
-		`
-	} else if (spaceArr.includes(props)) {
+const $ml = props => {
+	if (spaceArr.includes(props)) {
 		return `
 			margin-left: ${sp[props]};
 		`
 	}
 }
+
+const $margin = props => {
+	const notInM = !props.m
+	const notInMX = !props.mx && notInM
+	const notInMY = !props.my && notInM
+	let margin = ``
+
+	if (props.m) margin += $m(props.m)
+	if (props.mx && notInM) margin += $mx(props.mx)
+	if (props.my && notInM) margin += $my(props.my)
+	if (props.mt && notInMY) margin += $mt(props.mt)
+	if (props.mr && notInMX) margin += $mr(props.mr)
+	if (props.mb && notInMY) margin += $mb(props.mb)
+	if (props.ml && notInMX) margin += $ml(props.ml)
+
+	return margin
+}
+export default $margin
