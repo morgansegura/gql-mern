@@ -1,14 +1,26 @@
 import styled, { css } from 'styled-components'
 import { sp } from 'styled/spacing'
 import { f0, f100, f200, family } from 'styled/fonts'
-import * as color from 'styled/colors'
+import {
+	primary,
+	secondary,
+	success,
+	warning,
+	danger,
+	grey,
+	white,
+	black
+} from 'styled/colors'
 
-import { $padding } from '@styled/variants/padding'
-import { $margin } from '@styled/variants/margin'
-import { $radius } from 'styled/variants/radius'
-import { $borders } from 'styled/variants/border'
-import { $shadow } from 'styled/variants/shadow'
-import { $borderfill, $fill } from 'styled/variants/fill'
+import {
+	$padding,
+	$margin,
+	$corners,
+	$borders,
+	$shadow,
+	$fill,
+	$borderfill
+} from 'styled/variants'
 
 import { lighten, rgba, readableColor } from 'polished'
 
@@ -49,222 +61,290 @@ const btnSize = css`
 		} else if (size === 'lg') {
 			return `
 				${f200};
-				padding: ${sp[8]} ${sp[16]};
+				padding: ${sp[12]} ${sp[24]};
 			`
 		} else {
 			return `
 				${f100};
-				padding: ${sp[6]} ${sp[12]};
+				padding: ${sp[8]} ${sp[12]};
 			`
 		}
 	}}
 `
 
 const btnColor = css`
-	${({
-		primary,
-		secondary,
-		light,
-		dark,
-		success,
-		warning,
-		danger,
-		outline,
-		fill
-	}) => {
-		if (primary) {
-			if (outline) {
+	${props => {
+		if (props.primary) {
+			if (props.outline) {
 				return `
 					background-color: transparent;
-					color: ${color.primary[400]};
-					border: 2px solid ${color.primary[400]};
-
-					div span {
-						background-color: ${rgba(color.primary[200], 0.5)};
-					}
-
-					&:hover {
-						color: ${color.primary[200]};
-						border-color: ${color.primary[200]};
-					}
-				`
-			} else {
-				console.log(color.primary[400])
-				return `
-					background-color: ${color.primary[400]};
-					color: ${readableColor(color.primary[400], color.white, color.black)};
-
-					div span {
-						background-color: ${rgba(color.white, 0.75)};
-					}
-
-					&:hover {
-						color: ${readableColor(color.primary[600], color.white, color.black)};
-						background-color: ${color.primary[200]};
-					}
-				`
-			}
-		} else if (secondary) {
-			if (outline) {
-				return `
-					background-color: transparent;
-					color: ${color.secondary[600]};
-					border: 2px solid ${color.secondary[600]};
-
-					div span {
-						background-color: ${color.secondary[200]};
-					}
-
-					&:hover {
-						color: ${color.secondary[400]};
-						border-color: ${color.secondary[400]};
-					}
-				`
-			} else {
-				return `
-					background-color: ${color.secondary[600]};
-					color: ${readableColor(color.secondary[600], color.white, color.black)};
-
-					div span {
-						background-color: ${color.secondary[200]};
-					}
-
-					&:hover {
-						color: ${readableColor(color.secondary[400], color.white, color.black)};
-						background-color: ${color.secondary[400]};
-					}
-				`
-			}
-		} else if (light) {
-			if (outline) {
-				return `
-					background-color: ${color.white};
-					color: ${color.black};
-					border: 2px solid ${color.black};
-
-					div span {
-						background-color: ${color.grey[300]};
-					}
-
-					&:hover {
-						color: ${rgba(color.black, 0.5)});
-						border-color: ${rgba(color.black, 0.5)};
-					}
-				`
-			} else {
-				return `
-					background-color: ${color.white};
-					color: ${color.black};
-
-					div span {
-						background-color: ${color.grey700};
-					}
-
-					&:hover {
-						color: ${rgba(color.black, 0.75)};
-					}
-				`
-			}
-		} else if (dark) {
-			if (outline) {
-				return `
-					background-color: transparent;
-					border: 2px solid ${color.black};
-				`
-			} else {
-				return `
-					background-color: ${color.black};
-				`
-			}
-		} else if (danger) {
-			if (outline) {
-				return `
-					background-color: transparent;
+					color: ${primary[400]};
 					border: 2px solid ${primary[400]};
-				`
-			} else {
-				return `
-
-				`
-			}
-		} else if (warning) {
-			if (outline) {
-				return `
-					background-color: transparent;
-					border: 2px solid ${primary[400]};
-				`
-			} else {
-				return `
-
-				`
-			}
-		} else if (success) {
-			if (outline) {
-				return `
-					background-color: transparent;
-					border: 2px solid ${primary[400]};
-				`
-			} else {
-				return `
-
-				`
-			}
-		} else if (fill) {
-			if (outline) {
-				return `
-					background-color: transparent;
-					border: 2px solid ${fill};
-					color: ${fill};
 
 					div span {
-						background-color: ${rgba(fill, 0.25)};
+						background-color: ${rgba(primary[200], 0.5)};
 					}
 
 					&:hover {
-						border-color: ${rgba(fill)};
-						color: ${rgba(fill)};
+						color: ${primary[200]};
+						border-color: ${primary[200]};
 					}
 				`
 			} else {
 				return `
-					color: ${readableColor(fill, color.white, color.black, true)};
-					background-color: ${fill};
+					background-color: ${primary[400]};
+					color: ${readableColor(primary[400], white, black)};
 
 					div span {
-						background-color: ${rgba(readableColor(fill), 0.75)};
+						background-color: ${rgba(white, 0.75)};
 					}
 
 					&:hover {
-						color: ${lighten(0.2, readableColor(fill, color.white, color.black, true))};
-						background-color: ${lighten(0.1, fill)};
+						color: ${readableColor(primary[600], white, black)};
+						background-color: ${primary[200]};
+					}
+				`
+			}
+		} else if (props.secondary) {
+			if (props.outline) {
+				return `
+					background-color: transparent;
+					color: ${secondary[600]};
+					border: 2px solid ${secondary[600]};
+
+					div span {
+						background-color: ${secondary[200]};
+					}
+
+					&:hover {
+						color: ${secondary[400]};
+						border-color: ${secondary[400]};
+					}
+				`
+			} else {
+				return `
+					background-color: ${secondary[600]};
+					color: ${readableColor(secondary[600], white, black)};
+
+					div span {
+						background-color: ${secondary[200]};
+					}
+
+					&:hover {
+						color: ${readableColor(secondary[400], white, black)};
+						background-color: ${secondary[400]};
+					}
+				`
+			}
+		} else if (props.light) {
+			if (props.outline) {
+				return `
+					background-color: ${white};
+					color: ${black};
+					border: 2px solid ${black};
+
+					div span {
+						background-color: ${grey[300]};
+					}
+
+					&:hover {
+						color: ${rgba(black, 0.5)});
+						border-color: ${rgba(black, 0.5)};
+					}
+				`
+			} else {
+				return `
+					background-color: ${white};
+					color: ${black};
+
+					div span {
+						background-color: ${grey[700]};
+					}
+
+					&:hover {
+						color: ${rgba(black, 0.75)};
+					}
+				`
+			}
+		} else if (props.dark) {
+			if (props.outline) {
+				return `
+					background-color: transparent;
+					border: 2px solid ${black};
+
+					div span {
+						background-color: ${grey['50']};
+					}
+
+					&:hover {
+						${'' /* color: ${rgba(black, 0.95)}; */}
+						border-color: ${rgba(black, 0.9)};
+					}
+				`
+			} else {
+				return `
+					background-color: ${black};
+					color: ${white};
+
+					div span {
+						background-color: ${rgba(white, 0.5)};
+					}
+
+					&:hover {
+						${'' /* color: ${rgba(white, 0.95)}; */}
+						background-color: ${rgba(black, 0.9)};
+					}
+				`
+			}
+		} else if (props.success) {
+			if (props.outline) {
+				return `
+					background-color: transparent;
+					color: ${success[600]};
+					border: 2px solid ${success[600]};
+
+					div span {
+						background-color: ${success[200]};
+					}
+
+					&:hover {
+						color: ${success[400]};
+						border-color: ${success[400]};
+					}
+				`
+			} else {
+				return `
+					background-color: ${success[600]};
+					color: ${readableColor(success[600], white, success[400])};
+
+					div span {
+						background-color: ${success[200]};
+					}
+
+					&:hover {
+						color: ${readableColor(success[400], white, success[400])};
+						background-color: ${success[400]};
+					}
+				`
+			}
+		} else if (props.danger) {
+			if (props.outline) {
+				return `
+					background-color: transparent;
+					color: ${danger[600]};
+					border: 2px solid ${danger[600]};
+
+					div span {
+						background-color: ${danger[200]};
+					}
+
+					&:hover {
+						color: ${danger[400]};
+						border-color: ${danger[400]};
+					}
+				`
+			} else {
+				return `
+					background-color: ${danger[600]};
+					color: ${readableColor(danger[600], white, danger[600])};
+
+					div span {
+						background-color: ${danger[200]};
+					}
+
+					&:hover {
+						color: ${readableColor(danger[400], white, danger[400])};
+						background-color: ${danger[400]};
+					}
+				`
+			}
+		} else if (props.warning) {
+			if (props.outline) {
+				return `
+					background-color: transparent;
+					color: ${warning[600]};
+					border: 2px solid ${warning[600]};
+
+					div span {
+						background-color: ${warning[200]};
+					}
+
+					&:hover {
+						color: ${warning[400]};
+						border-color: ${warning[400]};
+					}
+				`
+			} else {
+				return `
+					background-color: ${warning[600]};
+					color: ${readableColor(warning[600], white, black)};
+
+					div span {
+						background-color: ${warning[200]};
+					}
+
+					&:hover {
+						color: ${readableColor(warning[400], white, black)};
+						background-color: ${warning[400]};
+					}
+				`
+			}
+		} else if (props.fill) {
+			if (props.outline) {
+				return `
+					background-color: transparent;
+					border: 2px solid ${props.fill};
+					color: ${props.fill};
+
+					div span {
+						background-color: ${rgba(props.fill, 0.25)};
+					}
+
+					&:hover {
+						border-color: ${rgba(props.fill)};
+						color: ${rgba(props.fill)};
+					}
+				`
+			} else {
+				return `
+					color: ${readableColor(props.fill, white, black, true)};
+					background-color: ${props.fill};
+
+					div span {
+						background-color: ${rgba(readableColor(props.fill), 0.75)};
+					}
+
+					&:hover {
+						color: ${lighten(0.2, readableColor(props.fill, white, black, true))};
+						background-color: ${lighten(0.1, props.fill)};
 					}
 				`
 			}
 		} else {
-			if (outline) {
+			if (props.outline) {
 				return `
 					background-color: transparent;
-					border: 2px solid ${color.grey[300]};
+					border: 2px solid ${grey[300]};
 
 					div span {
-						background-color: ${color.grey[300]};
+						background-color: ${grey[300]};
 					}
 
 					&:hover {
-						border-color: ${rgba(color.black, 0.2)};
+						border-color: ${rgba(black, 0.2)};
 					}
 				`
 			} else {
 				return `
-					background-color: ${color.grey[200]};
+					background-color: ${grey[200]};
 					border: 2px solid transparent;
 
 					div span {
-						background-color: ${rgba(color.white, 0.75)};
+						background-color: ${rgba(white, 0.75)};
 					}
 
 					&:hover {
-						background-color: ${rgba(color.black, 0.1)};
+						background-color: ${rgba(black, 0.1)};
 					}
 				`
 			}
@@ -281,25 +361,26 @@ export const Button = styled(props => props.as)`
 		return $margin(props)
 	}}
 
-    ${({ shadow }) => {
-		if (shadow) return $shadow(shadow)
+	${props => {
+		return $corners(props)
 	}}
 
-    ${({ fill }) => {
-		if (fill) return $fill(fill)
+	${props => {
+		return $shadow(props)
 	}}
 
-    ${({ borderfill }) => {
-		if (borderfill) return $borderfill(borderfill)
+	${props => {
+		return $fill(props)
+	}}
+
+	${props => {
+		return $borderfill(props)
 	}}
 
 	${props => {
 		return $borders(props)
 	}}
 
-	${props => {
-		return $radius(props)
-	}}
 
 	${btnBase};
 	${btnSize};

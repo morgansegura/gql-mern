@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { fz, family } from 'styled/fonts'
-import { black } from 'styled/colors'
+import { black, grey } from 'styled/colors'
 
 const GlobalStyle = createGlobalStyle`
 html,
@@ -138,6 +138,7 @@ body {
 	color: ${black};
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: ${grey[50]};
 }
 
 a {
@@ -172,7 +173,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.heading {
+	font-family: ${family['heading']};
 	font-weight: normal;
 	margin-top: 0;
 	margin-bottom: 0;

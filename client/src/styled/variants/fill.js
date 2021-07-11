@@ -1,15 +1,11 @@
 import { white, black } from 'styled/colors'
-import { lighten, rgba, readableColor } from 'polished'
+import { lighten, readableColor } from 'polished'
 
 const $bgFill = props => {
 	if (props) {
 		return `
             color: ${readableColor(props, white, black, true)};
             background-color: ${props};
-
-            div span {
-                background-color: ${rgba(readableColor(props), 0.75)};
-            }
 
             &:hover {
                 color: ${lighten(

@@ -101,7 +101,6 @@ export const SlideToggle = styled.div`
 
 			&-done {
 				${({ direction }) => {
-					console.log(direction)
 					if (direction === 'top') {
 						return `
 						top: 0;

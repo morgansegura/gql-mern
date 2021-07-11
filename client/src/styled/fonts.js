@@ -1,8 +1,7 @@
 // Families
 export const family = {
-	default: `Roboto, Graphik, -apple-system, BlinkMacSystemFont, Segoe UI,
-	Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-	sans-serif;`,
+	default: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';`,
+	heading: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';`
 }
 
 // Sizes
@@ -18,7 +17,7 @@ export const fz = {
 	700: `${26 / 16}rem`,
 	800: `${31 / 16}rem`,
 	900: `${37 / 16}rem`,
-	1000: `${48 / 16}rem`,
+	1000: `${48 / 16}rem`
 }
 
 export const lh = {
@@ -32,7 +31,7 @@ export const lh = {
 	700: `${40 / 16}rem`,
 	800: `${48 / 16}rem`,
 	900: `${52 / 16}rem`,
-	1000: `${60 / 16}rem`,
+	1000: `${60 / 16}rem`
 }
 
 export const f0 = `

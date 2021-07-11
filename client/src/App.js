@@ -1,67 +1,57 @@
-import { useState } from 'react'
-import ApolloClient, { gql } from 'apollo-boost'
-// Core Components
-import Text from 'components/core/typography/Text'
-import Box from 'components/core/surface/Box'
-import Container from 'components/core/structure/Container'
-import Grid from 'components/core/structure/Grid'
-import AnimateSlideToggle from 'components/core/utils/AnimateSlideToggle'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from '@apollo/react-hooks'
+import { Switch, Route } from 'react-router-dom'
+
+// Layout Components
+import Navbar from 'components/layouts/Navbar'
+import Menu from 'components/layouts/Menu'
+
+// Page Components
+import Home from 'pages/Home'
+import Login from 'pages/auth/Login'
+import Register from 'pages/auth/Register'
 
 const client = new ApolloClient({
 	uri: process.env.REACT_APP_GRAPHQL_ENDPOINT
 })
 
+const Logo = () => {
+	return <div>Logo</div>
+}
+
 const App = () => {
-	const [showPosts, setShowPosts] = useState(false)
-	const [posts, setPosts] = useState([])
-
-	const fadeToggle = () => {
-		setShowPosts(!showPosts)
-	}
-
-	client
-		.query({
-			query: gql`
-				{
-					allPosts {
-						id
-						title
-						description
-					}
-				}
-			`
-		})
-		.then(result => setPosts(result.data.allPosts))
+	const navItems = [
+		{
+			id: 1,
+			path: '/',
+			label: 'Home',
+			type: 'router'
+		},
+		{
+			id: 2,
+			path: '/login',
+			label: 'Login',
+			type: 'router'
+		},
+		{
+			id: 3,
+			path: '/register',
+			label: 'Register',
+			type: 'router'
+		}
+	]
 
 	return (
-		<Container maxWidth="xs" my="32" auto>
-			<Text onClick={fadeToggle} pb="24">
-				Click to load
-			</Text>
-			<AnimateSlideToggle in={showPosts} direction="right">
-				<Grid cols={`${posts.length}`} gap="16">
-					{posts.map(({ id, title, description }) => (
-						<Box
-							key={id}
-							shadow="md"
-							radius="sm"
-							pt="8"
-							px="16"
-							pb="16"
-							border
-							borderfill="#efefef">
-							<Text as="h3" size="400">
-								{title}
-							</Text>
-
-							<Text as="h4" size="200">
-								{description}
-							</Text>
-						</Box>
-					))}
-				</Grid>
-			</AnimateSlideToggle>
-		</Container>
+		<ApolloProvider client={client}>
+			<Navbar>
+				<Menu logo={<Logo />} navItems={navItems} />
+			</Navbar>
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route path="/login" component={Login} />
+				<Route path="/register" component={Register} />
+			</Switch>
+		</ApolloProvider>
 	)
 }
 

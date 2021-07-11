@@ -1,4 +1,4 @@
-import Ripple from 'core/utils/Ripple'
+import Ripple from 'components/core/utils/Ripple'
 
 // Styled
 import * as s from './Button.styled'

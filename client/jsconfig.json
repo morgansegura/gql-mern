@@ -2,15 +2,15 @@
     "compilerOptions": {
         "baseUrl": "src",
         "paths": {
-            "@node_modules/*": ["../node_modules/*"],
-            "@actions/*": ["actions/*"],
-            "@auth/*": ["components/auth/*"],
-            "@core/*": ["components/core/*"],
-            "@layouts/*": ["components/layouts/*"],
-            "@styled/*": ["styled/"]
+            "node_modules/*": ["../node_modules/*"],
+            "context/*": ["context/*"],
+            "pages/*": ["pages/*"],
+            "components/*": ["components/*"],
+            "core/*": ["components/core/*"],
+            "styled/*": ["styled/*"]
         }
     },
-    "include": "src",
+    "include": ["src"],
     "exclude": ["node_modules"],
     "typeAcquisition": {
         "exclude": [ "dotenv" ]

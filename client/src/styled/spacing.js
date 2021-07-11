@@ -37,22 +37,22 @@ export const sp = {
 	384: `${384 / 16}rem`
 }
 
-export const maxWidth = {
-	xs: `${575.98 / 16}em`,
-	sm: `${767.98 / 16}em`,
-	md: `${991.98 / 16}em`,
-	lg: `${1199.98 / 16}em`,
-	xl: `${1339.98 / 16}em`,
-	'2xl': `${2255.98 / 16}em`
+export const maxwidth = {
+	mobile: `${576 - 0.1}px`,
+	tablet: `${768 - 0.1}px`,
+	laptop: `${1024 - 0.1}px`,
+	desktop: `${1200 - 0.1}px`,
+	larger: `${1440 - 0.1}px`,
+	max: `${2256 - 0.1}px`
 }
 
-export const minWidth = {
-	sm: `${576 / 16}em`,
-	md: `${768 / 16}em`,
-	lg: `${992 / 16}em`,
-	xl: `${1200 / 16}em`,
-	'2xl': `${1440 / 16}em`,
-	'3xl': `${2256 / 16}em`
+export const minwidth = {
+	mobile: `${576}px`,
+	tablet: `${768}px`,
+	laptop: `${1024}px`,
+	desktop: `${1200}px`,
+	larger: `${1440}px`,
+	max: `${2256}px`
 }
 
 export const gutter = {
