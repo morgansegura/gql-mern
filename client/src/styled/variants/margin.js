@@ -1,4 +1,4 @@
-import { sp } from 'styled/spacing'
+import { sp } from '@styled/spacing'
 
 const spaceArr = [
 	'0',

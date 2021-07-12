@@ -7,7 +7,7 @@ import {
 	$shadow,
 	$borderfill,
 	$fill
-} from 'styled/variants'
+} from '@styled/variants'
 
 export const Box = styled(props => props.as)`
 	${props => {

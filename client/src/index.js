@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { AuthProvider } from 'context/authContext'
+import { AuthProvider } from '@context/authContext'
 import { BrowserRouter } from 'react-router-dom'
 
 // Component Base
 import App from './App'
 // Styled
-import { GlobalStyle } from 'styled/globalStyles'
+import { GlobalStyle } from '@styled/globalStyles'
 
 ReactDOM.render(
 	<React.StrictMode>

@@ -1,4 +1,4 @@
-import { radius } from 'styled/spacing'
+import { radius } from '@styled/spacing'
 
 const radiusArr = ['none', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl']
 

@@ -1,4 +1,4 @@
-import { white, black } from 'styled/colors'
+import { white, black } from '@styled/colors'
 import { lighten, readableColor } from 'polished'
 
 const $bgFill = props => {

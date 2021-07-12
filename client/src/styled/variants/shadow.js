@@ -1,4 +1,4 @@
-import { boxshadow } from 'styled/spacing'
+import { boxshadow } from '@styled/spacing'
 
 const shadowArr = [
 	'sm',

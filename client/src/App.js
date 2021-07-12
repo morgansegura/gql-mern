@@ -3,16 +3,16 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import { Switch, Route } from 'react-router-dom'
 
 // Layout Components
-import Navbar from 'components/layouts/Navbar'
-import Menu from 'components/layouts/Menu'
+import Navbar from '@layouts/Navbar'
+import Menu from '@layouts/Menu'
 
 // Page Components
-import Home from 'pages/Home'
-import Login from 'pages/auth/Login'
-import Register from 'pages/auth/Register'
+import Home from '@pages/Home'
+import Login from '@pages/auth/Login'
+import Register from '@pages/auth/Register'
 
 const client = new ApolloClient({
-	uri: process.env.REACT_APP_GRAPHQL_ENDPOINT
+	uri: process.env.GRAPHQL_ENDPOINT
 })
 
 const Logo = () => {

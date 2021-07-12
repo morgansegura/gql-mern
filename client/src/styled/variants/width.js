@@ -1,4 +1,4 @@
-import { minWidth, maxWidth } from 'styled/spacing'
+import { minWidth, maxWidth } from '@styled/variants/widths'
 
 const minArr = ['sm', 'md', 'lg', 'xl', '2xl', '3xl']
 const maxArr = ['xs', 'sm', 'md', 'lg', 'xl', '2xl']

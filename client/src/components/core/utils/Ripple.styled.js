@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { white } from 'styled/colors'
+import { white } from '@styled/colors'
 
 export const Ripple = styled.div`
 	position: absolute;

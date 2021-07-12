@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
-import { fz, family } from 'styled/fonts'
-import { black, grey } from 'styled/colors'
+import { fz, family } from '@styled/fonts'
+import { black, grey } from '@styled/colors'
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 html,
 body,
 div,
@@ -187,5 +187,3 @@ h6,
 }
 
 `
-
-export { GlobalStyle }

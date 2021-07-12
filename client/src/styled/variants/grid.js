@@ -7,7 +7,7 @@ import {
 	gridFlow,
 	gridAutoCols,
 	gridAutoRows
-} from 'styled/spacing'
+} from '@styled/spacing'
 
 const gapArr = [
 	'0',

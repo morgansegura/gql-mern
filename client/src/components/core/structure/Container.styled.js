@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { $maxWidth } from 'styled/variants/width'
-import { $padding, $margin } from 'styled/variants'
+import { $maxWidth } from '@styled/variants/width'
+import { $padding, $margin } from '@styled/variants'
 
 export const Container = styled(props => props.as)`
 	${({ maxWidth }) => {

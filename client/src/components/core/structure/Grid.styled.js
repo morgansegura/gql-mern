@@ -8,7 +8,7 @@ import {
 	$gridFlow,
 	$gridAutoCols,
 	$gridAutoRows
-} from 'styled/variants/grid'
+} from '@styled/variants/grid'
 
 export const Grid = styled(props => props.as)`
 	display: grid;

@@ -1,4 +1,4 @@
-import { borderwidth } from 'styled/spacing'
+import { borderwidth } from '@styled/spacing'
 
 const borderArr = ['0', '2', '4', '8', 'base']
 

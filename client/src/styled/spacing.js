@@ -37,24 +37,6 @@ export const sp = {
 	384: `${384 / 16}rem`
 }
 
-export const maxwidth = {
-	mobile: `${576 - 0.1}px`,
-	tablet: `${768 - 0.1}px`,
-	laptop: `${1024 - 0.1}px`,
-	desktop: `${1200 - 0.1}px`,
-	larger: `${1440 - 0.1}px`,
-	max: `${2256 - 0.1}px`
-}
-
-export const minwidth = {
-	mobile: `${576}px`,
-	tablet: `${768}px`,
-	laptop: `${1024}px`,
-	desktop: `${1200}px`,
-	larger: `${1440}px`,
-	max: `${2256}px`
-}
-
 export const gutter = {
 	sm: sp[20],
 	md: sp[40],
@@ -109,6 +91,7 @@ export const gridCols = {
 	12: 'grid-template-columns: repeat(12, minmax(0, 1fr))',
 	none: 'grid-template-columns: none'
 }
+
 export const gridRows = {
 	1: 'grid-template-rows: repeat(1, minmax(0, 1fr))',
 	2: 'grid-template-rows: repeat(2, minmax(0, 1fr))',
@@ -118,6 +101,7 @@ export const gridRows = {
 	6: 'grid-template-rows: repeat(6, minmax(0, 1fr))',
 	none: 'grid-template-rows: none'
 }
+
 export const gridColSpan = {
 	auto: 'grid-column: auto',
 	'span-1': 'grid-column: span 1 / span 1',

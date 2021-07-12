@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
 // Core Components
-import Text from 'components/core/typography/Text'
-import AnimateSlideToggle from 'components/core/utils/AnimateSlideToggle'
+import Text from '@core/typography/Text'
+import AnimateSlideToggle from '@core/utils/AnimateSlideToggle'
 
 // Styled
 import * as s from './Toast.styled'

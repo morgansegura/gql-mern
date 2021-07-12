@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components'
-import { sp } from 'styled/spacing'
-import { f0, f100, f200, family } from 'styled/fonts'
+import { lighten, rgba, readableColor } from 'polished'
+import { sp } from '@styled/spacing'
+import { f0, f100, f200, family } from '@styled/fonts'
+import { fontSizing } from '@styled/utils'
+
 import {
 	primary,
 	secondary,
@@ -10,7 +13,7 @@ import {
 	grey,
 	white,
 	black
-} from 'styled/colors'
+} from '@styled/colors'
 
 import {
 	$padding,
@@ -20,9 +23,7 @@ import {
 	$shadow,
 	$fill,
 	$borderfill
-} from 'styled/variants'
-
-import { lighten, rgba, readableColor } from 'polished'
+} from '@styled/variants'
 
 const btnBase = css`
 	font-family: ${family['default']};
@@ -65,7 +66,7 @@ const btnSize = css`
 			`
 		} else {
 			return `
-				${f100};
+				${fontSizing('16px', '20px')}
 				padding: ${sp[8]} ${sp[12]};
 			`
 		}

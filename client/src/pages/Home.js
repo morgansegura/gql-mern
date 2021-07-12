@@ -1,12 +1,12 @@
 import { useContext } from 'react'
 import { gql } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
-import { AuthContext } from 'context/authContext'
+import { AuthContext } from '@context/authContext'
 import { useHistory } from 'react-router-dom'
 
 // Core Components
-import Toast from 'components/core/interaction/Toast'
-import Button from 'components/core/interaction/Button'
+import Toast from '@core/interaction/Toast'
+import Button from '@core/interaction/Button'
 
 // Styled
 import * as s from './Home.styled'
@@ -27,6 +27,13 @@ const Home = () => {
 	const { state, dispatch } = useContext(AuthContext)
 
 	let history = useHistory()
+
+	const updateUserName = () => {
+		dispatch({
+			type: 'LOGGED_IN_USER',
+			payload: 'Ryan Dhungel'
+		})
+	}
 
 	if (loading)
 		return <Toast text="Loading..." className="toast toast-error" />

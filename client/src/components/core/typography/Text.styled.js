@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { $padding, $margin, $textfill } from 'styled/variants'
-import * as font from 'styled/fonts'
+import { $padding, $margin, $textfill } from '@styled/variants'
+import * as font from '@styled/fonts'
 
 export const Tag = styled(props => props.as)`
 	${({ size }) => {

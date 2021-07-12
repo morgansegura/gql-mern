@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { black, white, danger, success, warning } from 'styled/colors'
-import { f200 } from 'styled/fonts'
-import { boxshadow } from 'styled/spacing'
+import { black, white, danger, success, warning } from '@styled/colors'
+import { f200 } from '@styled/fonts'
+import { boxshadow } from '@styled/spacing'
 
 export const Toast = styled.div`
 	.slidetoggle {
