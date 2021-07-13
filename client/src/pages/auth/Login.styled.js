@@ -31,7 +31,11 @@ export const FormControl = styled.div`
 	}
 `
 
-export const Heading = styled.div``
+export const Heading = styled.div`
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+`
 
 export const Title = styled.div`
 	text-transform: uppercase;
@@ -79,9 +83,9 @@ export const ButtonGroup = styled.div`
 		border: none;
 		border-radius: 4px;
 		background-color: #6e41e2;
+		flex: 1 0 auto;
 
 		${below['tablet']`
-            flex: 1 0 auto;
             padding: ${rem('16px')} ${rem('20px')};
         `}
 
@@ -108,4 +112,7 @@ export const ButtonGroup = styled.div`
 	}
 `
 
-export const GoogleButton = styled.div``
+export const GoogleButton = styled.div`
+	position: absolute;
+	right: 0;
+`

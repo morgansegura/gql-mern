@@ -70,12 +70,12 @@ const Login = () => {
 		<s.Container>
 			<s.Heading>
 				<s.Title>{loading ? `Loading...` : `Login`}</s.Title>
+				<s.GoogleButton>
+					<Button onClick={googleLogin} as="button">
+						Login with Google
+					</Button>
+				</s.GoogleButton>
 			</s.Heading>
-			<s.GoogleButton>
-				<Button onClick={googleLogin} as="button">
-					Login with Google
-				</Button>
-			</s.GoogleButton>
 			<s.Form onSubmit={handleSubmit}>
 				<s.FormControl>
 					<TextField
@@ -84,6 +84,7 @@ const Login = () => {
 						value={email}
 						onChange={e => setEmail(e.target.value)}
 						disabled={loading}
+						autoComplete="off"
 					/>
 					<TextField
 						label="Password"
@@ -91,6 +92,7 @@ const Login = () => {
 						value={password}
 						onChange={e => setPassword(e.target.value)}
 						disabled={loading}
+						autoComplete="off"
 					/>
 				</s.FormControl>
 				<s.ButtonGroup>

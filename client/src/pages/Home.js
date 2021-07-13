@@ -3,7 +3,7 @@ import { gql } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
 import { AuthContext } from '@context/authContext'
 import { useHistory } from 'react-router-dom'
-import toast from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 
 // Core Components
 import Button from '@core/interaction/Button'
@@ -38,7 +38,6 @@ const Home = () => {
 	// if (loading) {
 	// 	toast.loading('Loading...')
 	// }
-
 	// if (error) {
 	// 	toast.error(error.message)
 	// }
