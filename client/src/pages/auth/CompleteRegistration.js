@@ -3,6 +3,8 @@ import { auth } from '@src/firebase'
 import toast from 'react-hot-toast'
 import { useHistory } from 'react-router-dom'
 import { AuthContext } from '@context/authContext'
+import { useMutation } from '@apollo/react-hooks'
+import { gql } from 'apollo-boost'
 
 // Core Components
 import Button from '@core/interaction/Button'
@@ -10,6 +12,15 @@ import TextField from '@core/inputs/TextField'
 
 // Styled
 import * as s from './CompleteRegistration.styled'
+
+const USER_CREATE = gql`
+	mutation userCreate {
+		userCreate {
+			username
+			email
+		}
+	}
+`
 
 const CompleteRegistration = () => {
 	const { dispatch } = useContext(AuthContext)
@@ -22,6 +33,8 @@ const CompleteRegistration = () => {
 	useEffect(() => {
 		setEmail(window.localStorage.getItem('emailFormRegistration'))
 	}, [history])
+
+	const [userCreate] = useMutation(USER_CREATE)
 
 	const clearInputs = () => {
 		setPassword('')
@@ -56,6 +69,7 @@ const CompleteRegistration = () => {
 				})
 
 				// make API request save/update user in mongodb
+				userCreate()
 
 				history.push('/')
 			}

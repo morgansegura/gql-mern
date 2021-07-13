@@ -16,15 +16,22 @@ import Login from '@pages/auth/Login'
 import Register from '@pages/auth/Register'
 import CompleteRegistration from '@pages/auth/CompleteRegistration'
 
-const client = new ApolloClient({
-	uri: process.env.REACT_APP_GRAPHQL_ENDPOINT
-})
-
 const Logo = () => {
 	return <div>Logo</div>
 }
 
 const App = () => {
+	const client = new ApolloClient({
+		uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
+		request: operation => {
+			operation.setContext({
+				headers: {
+					authtoken: user ? user.token : ''
+				}
+			})
+		}
+	})
+
 	const { state, dispatch } = useContext(AuthContext)
 	let history = useHistory()
 
