@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema(
 		username: {
 			type: String,
 			required: true,
-			index: true
+			index: true,
+			unique: true
 		},
 		name: {
 			type: String
@@ -14,13 +15,14 @@ const UserSchema = new mongoose.Schema(
 		email: {
 			type: String,
 			required: true,
-			index: true
+			index: true,
+			unique: true
 		},
 		images: {
 			type: Array,
 			default: {
 				url: 'https://via.placeholder.com/200x200.png?text=Profile',
-				public_id: '123'
+				public_id: Date.now
 			}
 		},
 		about: {
