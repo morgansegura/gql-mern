@@ -4,26 +4,33 @@ import { fontSizing } from '@styled/utils'
 
 export const FormGroup = styled.div`
 	position: relative;
+	z-index: 1;
 `
 
 export const Label = styled.label`
 	position: absolute;
 	top: 50%;
 	transform: translate(16px, -50%);
-	z-index: 1;
+	z-index: 2;
 	${fontSizing('16px', '24px')};
 	color: ${grey[400]};
 	pointer-events: none;
-	transition: all 0.2s ease-out;
+	transition: font-size 0.05s ease-out;
 
-	.isFocused & {
+	[data-focused='true'] & {
 		${fontSizing('13px', '20px')};
 		top: 6px;
 		transform: translate(16px, 0);
 	}
+
+	[data-disabled='true'] & {
+		color: ${grey[600]};
+		${fontSizing('14px', '24px')};
+	}
 `
 
 export const Input = styled.input`
+	position: relative;
 	z-index: 0;
 	width: 100%;
 	padding: 1rem;
@@ -43,5 +50,11 @@ export const Input = styled.input`
 	&::focus {
 		box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
 			0px 4px 16px rgba(51, 51, 51, 0.08);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: ${grey[100]};
+		box-shadow: none;
 	}
 `

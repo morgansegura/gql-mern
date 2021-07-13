@@ -3,9 +3,9 @@ import { gql } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
 import { AuthContext } from '@context/authContext'
 import { useHistory } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 // Core Components
-import Toast from '@core/interaction/Toast'
 import Button from '@core/interaction/Button'
 
 // Styled
@@ -31,14 +31,17 @@ const Home = () => {
 	const updateUserName = () => {
 		dispatch({
 			type: 'LOGGED_IN_USER',
-			payload: 'Ryan Dhungel'
+			payload: 'morgansegura@gmail.com'
 		})
 	}
 
-	if (loading)
-		return <Toast text="Loading..." className="toast toast-error" />
+	// if (loading) {
+	// 	toast.loading('Loading...')
+	// }
 
-	if (error) return <Toast text={error} className="toast toast-error" />
+	// if (error) {
+	// 	toast.error(error.message)
+	// }
 
 	return (
 		<s.Home>
@@ -48,17 +51,18 @@ const Home = () => {
 				</s.Heading>
 
 				<s.PostGrid>
-					{data.allPosts.map(({ id, title, description }) => (
-						<s.Card key={id}>
-							<s.CardTitle>{title}</s.CardTitle>
+					{data.allPosts &&
+						data.allPosts.map(({ id, title, description }) => (
+							<s.Card key={id}>
+								<s.CardTitle>{title}</s.CardTitle>
 
-							<s.CardBody>{description}</s.CardBody>
-						</s.Card>
-					))}
+								<s.CardBody>{description}</s.CardBody>
+							</s.Card>
+						))}
 				</s.PostGrid>
-				{JSON.stringify(history)}
+				{/* {JSON.stringify(state)} */}
 				<s.Button>
-					<Button dark>Load More</Button>
+					<Button>Load More</Button>
 				</s.Button>
 			</s.Container>
 		</s.Home>

@@ -4,20 +4,8 @@ import { grey, white } from '@styled/colors'
 import { minwidth } from '@styled/widths'
 import { above, below, fontSizing } from '@styled/utils'
 
-export const Home = styled.div`
-	.toast {
-		&-loading {
-		}
+export const Home = styled.div``
 
-		&-success {
-		}
-
-		&-error {
-			top: 1rem;
-			right: 1rem;
-		}
-	}
-`
 export const Container = styled.div`
 	padding: 1rem;
 	background-color: ${grey[200]};

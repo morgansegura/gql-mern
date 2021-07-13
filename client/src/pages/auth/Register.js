@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { auth } from 'firebase'
+import { auth } from '@src/firebase'
+import toast from 'react-hot-toast'
 
 // Core Components
 import Button from '@core/interaction/Button'
@@ -16,23 +17,30 @@ const Register = () => {
 		e.preventDefault()
 		setLoading(true)
 		const config = {
-			url: process.env.CONFIRMATION_EMAIL_REDIRECT,
+			url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
 			handleCodeInApp: true
 		}
-		// const result = await auth.sendSignInLinkToEmail(email, config)
-		// console.log('result', result)
+		const result = await auth.sendSignInLinkToEmail(email, config)
+		console.log('result', result)
+
+		toast.success(`A confirmation was sent to ${email}.`, {
+			position: 'top-center',
+			icon: '👏',
+			ariaProps: {
+				role: 'status',
+				'aria-live': 'polite'
+			}
+		})
 
 		window.localStorage.setItem('emailFormRegistration', email)
 		setEmail('')
 		setLoading(false)
 	}
 
-	console.log('path', process.env.CONFIRMATION_EMAIL_REDIRECT)
-
 	return (
 		<s.Container>
 			<s.Heading>
-				<s.Title>Register</s.Title>
+				<s.Title>{loading ? `Loading...` : `Register`}</s.Title>
 			</s.Heading>
 			<s.Form onSubmit={handleSubmit}>
 				<TextField

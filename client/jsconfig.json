@@ -2,6 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
+            "@src/*": ["src/*"],
             "@components/*": ["src/components/*"],
             "@context/*": ["src/context/*"],
             "@core/*": ["src/components/core/*"],
@@ -10,8 +11,6 @@
             "@styled/*": ["src/styled/*"]
         }
     },
-    "exclude": ["node_modules", "build"],
-    // "typeAcquisition": {
-    //     "exclude": [ "dotenv" ]
-    // }
+    "exclude": ["node_modules", "build"]
+
 }

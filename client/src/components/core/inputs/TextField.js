@@ -3,17 +3,18 @@ import { useState } from 'react'
 // Styled
 import * as s from './TextField.styled'
 
-const TextField = ({ label, type, value, ...props }) => {
+const TextField = ({ disabled, label, type, value, ...props }) => {
 	const [focused, setFocused] = useState(false)
 
 	return (
-		<s.FormGroup className={focused && `isFocused`}>
+		<s.FormGroup data-focused={focused} data-disabled={disabled}>
 			<s.Label>{label}</s.Label>
 			<s.Input
 				type={type}
 				value={value}
 				onFocus={() => setFocused(true)}
-				onBlur={() => value === '' && setFocused(false)}
+				onBlur={() => (value === '' || !focused) && setFocused(false)}
+				disabled={disabled}
 				{...props}
 			/>
 		</s.FormGroup>

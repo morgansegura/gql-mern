@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 import { lighten, rgba, readableColor } from 'polished'
 import { sp } from '@styled/spacing'
-import { f0, f100, f200, family } from '@styled/fonts'
 import { fontSizing } from '@styled/utils'
 
 import {
@@ -26,13 +25,11 @@ import {
 } from '@styled/variants'
 
 const btnBase = css`
-	font-family: ${family['default']};
 	position: relative;
 	z-index: 1;
 	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: 500;
-	letter-spacing: 0.02857em;
 	overflow: hidden;
 	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
 		color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -49,25 +46,25 @@ const btnSize = css`
 	${({ size }) => {
 		if (size === 'sm') {
 			return `
-				${f0};
+				${fontSizing('16px', '20px')}
 				padding-top: ${sp[4]};
 				padding-left: ${sp[8]};
 				padding-right: ${sp[8]};
 				`
 		} else if (size === 'md') {
 			return `
-				${f100};
+				${fontSizing('14px', '20px')}
 				padding: ${sp[6]} ${sp[10]};
 			`
 		} else if (size === 'lg') {
 			return `
-				${f200};
+				${fontSizing('16px', '20px')}
 				padding: ${sp[12]} ${sp[24]};
 			`
 		} else {
 			return `
-				${fontSizing('16px', '20px')}
-				padding: ${sp[8]} ${sp[12]};
+				${fontSizing('13px', '20px')}
+				${'' /* padding: ${sp[8]} ${sp[12]}; */}
 			`
 		}
 	}}
@@ -337,15 +334,14 @@ const btnColor = css`
 				`
 			} else {
 				return `
-					background-color: ${grey[200]};
-					border: 2px solid transparent;
+
 
 					div span {
 						background-color: ${rgba(white, 0.75)};
 					}
 
 					&:hover {
-						background-color: ${rgba(black, 0.1)};
+
 					}
 				`
 			}

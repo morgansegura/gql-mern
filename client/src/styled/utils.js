@@ -41,7 +41,7 @@ export const above = Object.keys(minwidth).reduce((accumulator, label) => {
 // }
 
 export const fontSizing = (size, lineheight) => {
-	return css`
+	return `
 		font-size: ${rem(size)};
 		line-height: ${em(lineheight)};
 	`
