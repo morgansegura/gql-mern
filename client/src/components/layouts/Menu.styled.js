@@ -1,6 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { rem } from 'polished'
 import { Link } from 'react-router-dom'
-import { f100 } from '@styled/fonts'
+import { white } from '@styled/colors'
+import { fontSizing } from '@styled/utils'
 
 export const Nav = styled.nav`
 	display: flex;
@@ -15,51 +17,36 @@ export const Menu = styled.div`
 	justify-content: flex-end;
 `
 
-export const MenuItemRouter = styled(Link)`
-	${f100};
-	font-weight: 500;
+const menuItems = css`
+	cursor: pointer;
+	${fontSizing('12px', '22px')};
+	font-weight: 600;
 	text-transform: uppercase;
-	padding-left: 1rem;
-	transition: opacity 0.3s ease-out;
+	padding: ${rem('4px')} ${rem('10px')};
+	transition: all 0.3s ease-out;
 
-	&::not(:last-child) {
-		padding-right: 1rem;
+	&:not(:last-child) {
+		margin-right: 0.5rem;
 	}
 
 	&:hover {
 		opacity: 0.65;
 	}
+
+	&[data-user='true']:last-child {
+		background-color: ${white};
+		border-radius: 4px;
+	}
+`
+
+export const MenuItemRouter = styled(Link)`
+	${menuItems}
 `
 
 export const MenuItemHref = styled.a`
-	${f100};
-	font-weight: 500;
-	text-transform: uppercase;
-	padding-left: 1rem;
-	transition: opacity 0.3s ease-out;
-
-	&::not(:last-child) {
-		padding-right: 1rem;
-	}
-
-	&:hover {
-		opacity: 0.65;
-	}
+	${menuItems}
 `
 
 export const MenuItem = styled.div`
-	${f100};
-	cursor: pointer;
-	font-weight: 500;
-	text-transform: uppercase;
-	padding-left: 1rem;
-	transition: opacity 0.3s ease-out;
-
-	&::not(:last-child) {
-		padding-right: 1rem;
-	}
-
-	&:hover {
-		opacity: 0.65;
-	}
+	${menuItems}
 `

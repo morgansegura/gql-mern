@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { minwidth } from '@styled/widths'
-import { grey, white } from '@styled/colors'
+import { white } from '@styled/colors'
 import { above, below, fontSizing } from '@styled/utils'
 import { rem, rgba } from 'polished'
 

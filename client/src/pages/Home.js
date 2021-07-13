@@ -51,16 +51,15 @@ const Home = () => {
 				</s.Heading>
 
 				<s.PostGrid>
-					{data.allPosts &&
-						data.allPosts.map(({ id, title, description }) => (
-							<s.Card key={id}>
-								<s.CardTitle>{title}</s.CardTitle>
+					{data?.allPosts?.map(({ id, title, description }) => (
+						<s.Card key={id}>
+							<s.CardTitle>{title}</s.CardTitle>
 
-								<s.CardBody>{description}</s.CardBody>
-							</s.Card>
-						))}
+							<s.CardBody>{description}</s.CardBody>
+						</s.Card>
+					))}
 				</s.PostGrid>
-				{/* {JSON.stringify(state)} */}
+				{JSON.stringify(state)}
 				<s.Button>
 					<Button>Load More</Button>
 				</s.Button>

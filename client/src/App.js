@@ -31,7 +31,7 @@ const App = () => {
 	const { user } = state
 
 	const logout = () => {
-		auth().signOut()
+		auth.signOut()
 
 		dispatch({
 			type: 'LOGGED_IN_USER',
@@ -46,31 +46,41 @@ const App = () => {
 			path: '/',
 			label: 'Home',
 			type: 'router'
-		},
+		}
+	]
+
+	const authNavItems = [
 		{
 			id: 2,
 			path: '/login',
 			label: 'Login',
-			type: 'router'
+			type: 'router',
+			user: !user
 		},
 		{
 			id: 3,
 			path: '/register',
 			label: 'Register',
-			type: 'router'
+			type: 'router',
+			user: !user
 		},
 		{
 			id: 4,
 			path: logout,
 			label: 'Logout',
-			type: 'function'
+			type: 'function',
+			user: user
 		}
 	]
 
 	return (
 		<ApolloProvider client={client}>
 			<Navbar>
-				<Menu logo={<Logo />} navItems={navItems} />
+				<Menu
+					logo={<Logo />}
+					navItems={navItems}
+					authNavItems={authNavItems}
+				/>
 			</Navbar>
 
 			<Switch>
