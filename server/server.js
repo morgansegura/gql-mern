@@ -6,6 +6,8 @@ const { makeExecutableSchema } = require('graphql-tools')
 const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
 const { loadFilesSync } = require('@graphql-tools/load-files')
 const mongoose = require('mongoose')
+const { authCheck } = require('./helpers/auth')
+
 require('dotenv').config()
 
 // Express server
@@ -18,7 +20,7 @@ const db = async () => {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useCreateIndex: true,
-			useFindAndModify: false,
+			useFindAndModify: false
 		})
 		console.log('DB Connected')
 	} catch (error) {
@@ -44,18 +46,19 @@ const resolvers = mergeResolvers(
 const apolloServer = new ApolloServer({
 	typeDefs,
 	resolvers,
+	context: ({ req, res }) => ({ req, res })
 })
 
 // Rest endpoint
-app.get('/rest', (req, res) => {
+app.get('/rest', authCheck, (req, res) => {
 	res.json({
-		data: 'You hit the rest endpoint.',
+		data: 'You hit the rest endpoint.'
 	})
 })
 
 // apply Middleware method connects ApolloServer to a specific HTTP framework ie: express
 apolloServer.applyMiddleware({
-	app,
+	app
 })
 
 // Server
