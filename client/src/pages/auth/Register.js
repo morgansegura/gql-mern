@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { auth } from '@src/firebase'
+import { useHistory } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
 // Core Components
@@ -12,6 +13,8 @@ import * as s from './Register.styled'
 const Register = () => {
 	const [email, setEmail] = useState('')
 	const [loading, setLoading] = useState(false)
+
+	let history = useHistory()
 
 	const handleSubmit = async e => {
 		e.preventDefault()
@@ -35,6 +38,7 @@ const Register = () => {
 		window.localStorage.setItem('emailFormRegistration', email)
 		setEmail('')
 		setLoading(false)
+		history.push('/')
 	}
 
 	return (

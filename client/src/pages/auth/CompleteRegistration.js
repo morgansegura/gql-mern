@@ -70,7 +70,7 @@ const CompleteRegistration = () => {
 
 				// make API request save/update user in mongodb
 				userCreate()
-
+				setPassword('')
 				history.push('/')
 			}
 		} catch (error) {

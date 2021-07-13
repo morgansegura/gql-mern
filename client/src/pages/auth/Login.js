@@ -3,6 +3,8 @@ import { AuthContext } from '@context/authContext'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { auth, googleAuthProvider } from '@src/firebase'
+import { useMutation } from '@apollo/react-hooks'
+import { gql } from 'apollo-boost'
 
 // Core Components
 import Button from '@core/interaction/Button'
@@ -11,6 +13,15 @@ import TextField from '@core/inputs/TextField'
 // Styled
 import * as s from './Login.styled'
 
+const USER_CREATE = gql`
+	mutation userCreate {
+		userCreate {
+			username
+			email
+		}
+	}
+`
+
 const Login = () => {
 	const { dispatch } = useContext(AuthContext)
 	const [email, setEmail] = useState('')
@@ -18,6 +29,8 @@ const Login = () => {
 	const [loading, setLoading] = useState(false)
 
 	let history = useHistory()
+
+	const [userCreate] = useMutation(USER_CREATE)
 
 	const handleSubmit = async e => {
 		e.preventDefault()
@@ -39,6 +52,8 @@ const Login = () => {
 					})
 
 					// Send user info to MongoDB
+					userCreate()
+
 					history.push('/')
 				})
 		} catch (error) {
@@ -62,6 +77,7 @@ const Login = () => {
 			})
 
 			// Send user info to MongoDB
+			userCreate()
 			history.push('/')
 		})
 	}
