@@ -1,14 +1,19 @@
-let authorized = true
+const admin = require('firebase-admin')
+const serviceAccount = require('../config/fbServiceAccountKey.json')
 
-exports.authCheck = (req, res, next = f => f) => {
-	if (!req.headers.authtoken) throw new Error('Unauthorized')
+admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount)
+})
 
-	// token value check
-	const valid = req.headers.authtoken === 'secret'
-
-	if (!valid) {
-		throw new Error('Unauthorized')
-	} else {
-		next()
+exports.authCheck = async req => {
+	try {
+		const currentUser = await admin
+			.auth()
+			.verifyIdToken(req.headers.authtoken)
+		console.log('CURRENT USER', currentUser)
+		return currentUser
+	} catch (error) {
+		console.log('AUTH CHECK ERROR', error)
+		throw new Error(error)
 	}
 }
