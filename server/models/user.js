@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema
 
-const UserSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
 	{
 		username: {
 			type: String,
@@ -20,13 +20,15 @@ const UserSchema = new mongoose.Schema(
 		},
 		images: {
 			type: Array,
-			default: {
-				url: 'https://via.placeholder.com/200x200.png?text=Profile',
-				public_id: Date.now
-			}
+			default: [
+				{
+					url: 'https://via.placeholder.com/200x200.png?text=Profile',
+					public_id: Date.now
+				}
+			]
 		},
 		about: {
-			type: string
+			type: String
 		}
 	},
 	{ timestamps: true }
