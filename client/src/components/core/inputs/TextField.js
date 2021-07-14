@@ -7,7 +7,10 @@ const TextField = ({ disabled, label, type, value, ...props }) => {
 	const [focused, setFocused] = useState(false)
 
 	return (
-		<s.FormGroup data-focused={focused} data-disabled={disabled}>
+		<s.FormGroup
+			data-id={props.id || type}
+			data-focused={focused}
+			data-disabled={disabled}>
 			<s.Label>{label}</s.Label>
 			<s.Input
 				type={type}

@@ -8,7 +8,9 @@ import { gql } from 'apollo-boost'
 
 // Core Components
 import Button from '@core/interaction/Button'
-import TextField from '@core/inputs/TextField'
+
+// Layout Components
+import AuthForm from '@layouts/forms/AuthForm'
 
 // Styled
 import * as s from './Login.styled'
@@ -92,34 +94,15 @@ const Login = () => {
 					</Button>
 				</s.GoogleButton>
 			</s.Heading>
-			<s.Form onSubmit={handleSubmit}>
-				<s.FormControl>
-					<TextField
-						label="Email"
-						type="email"
-						value={email}
-						onChange={e => setEmail(e.target.value)}
-						disabled={loading}
-						autoComplete="off"
-					/>
-					<TextField
-						label="Password"
-						type="password"
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-						disabled={loading}
-						autoComplete="off"
-					/>
-				</s.FormControl>
-				<s.ButtonGroup>
-					<Button
-						type="submit"
-						as="button"
-						disabled={!email || !password || loading}>
-						Submit
-					</Button>
-				</s.ButtonGroup>
-			</s.Form>
+			<AuthForm
+				email={email}
+				password={password}
+				loading={loading}
+				setEmail={setEmail}
+				setPassword={setPassword}
+				handleSubmit={handleSubmit}
+				showPasswordInput={true}
+			/>
 		</s.Container>
 	)
 }

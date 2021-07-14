@@ -6,9 +6,8 @@ import { AuthContext } from '@context/authContext'
 import { useMutation } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
 
-// Core Components
-import Button from '@core/interaction/Button'
-import TextField from '@core/inputs/TextField'
+// Layout Components
+import AuthForm from '@layouts/forms/AuthForm'
 
 // Styled
 import * as s from './CompleteRegistration.styled'
@@ -35,11 +34,6 @@ const CompleteRegistration = () => {
 	}, [history])
 
 	const [userCreate] = useMutation(USER_CREATE)
-
-	const clearInputs = () => {
-		setPassword('')
-		setLoading(false)
-	}
 
 	const handleSubmit = async e => {
 		e.preventDefault()
@@ -85,41 +79,18 @@ const CompleteRegistration = () => {
 		<s.Container>
 			<s.Heading>
 				<s.Title>
-					{loading ? (
-						'Loading...'
-					) : (
-						<div>
-							Registration <span>/ Complete the process</span>
-						</div>
-					)}
+					{loading ? 'Loading...' : <div>Finish Registration</div>}
 				</s.Title>
 			</s.Heading>
-			<s.Form onSubmit={handleSubmit}>
-				<s.FormControl>
-					<TextField label={`${email}`} type="email" disabled />
-					<TextField
-						label="Enter your password"
-						type="password"
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-						disabled={loading}
-						autoComplete="off"
-					/>
-				</s.FormControl>
-				<s.ButtonGroup>
-					{password !== '' && (
-						<Button as="span" onClick={clearInputs}>
-							Clear
-						</Button>
-					)}
-					<Button
-						type="submit"
-						as="button"
-						disabled={!email || loading}>
-						Submit
-					</Button>
-				</s.ButtonGroup>
-			</s.Form>
+			<AuthForm
+				email={email}
+				password={password}
+				loading={loading}
+				setEmail={setEmail}
+				setPassword={setPassword}
+				handleSubmit={handleSubmit}
+				showPasswordInput={true}
+			/>
 		</s.Container>
 	)
 }

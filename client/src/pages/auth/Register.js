@@ -3,9 +3,8 @@ import { auth } from '@src/firebase'
 import { useHistory } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
-// Core Components
-import Button from '@core/interaction/Button'
-import TextField from '@core/inputs/TextField'
+// Layout Components
+import AuthForm from '@layouts/forms/AuthForm'
 
 // Styled
 import * as s from './Register.styled'
@@ -46,23 +45,13 @@ const Register = () => {
 			<s.Heading>
 				<s.Title>{loading ? `Loading...` : `Register`}</s.Title>
 			</s.Heading>
-			<s.Form onSubmit={handleSubmit}>
-				<TextField
-					label="Email"
-					type="email"
-					value={email}
-					onChange={e => setEmail(e.target.value)}
-					disabled={loading}
-				/>
-				<s.ButtonGroup>
-					<Button
-						type="submit"
-						as="button"
-						disabled={!email || loading}>
-						Submit
-					</Button>
-				</s.ButtonGroup>
-			</s.Form>
+			<AuthForm
+				email={email}
+				loading={loading}
+				setEmail={setEmail}
+				handleSubmit={handleSubmit}
+				showPasswordInput={false}
+			/>
 		</s.Container>
 	)
 }
