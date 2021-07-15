@@ -1,10 +1,11 @@
 const shortid = require('shortid')
 const { authCheck } = require('../helpers/auth')
 const User = require('../models/user')
+const { DateTimeResolver } = require('graphql-scalars')
 
-const me = async (parent, args, { req }) => {
-	await authCheck(req)
-	return 'Morgan'
+const profile = async (parent, args, { req }) => {
+	const currentUser = await authCheck(req)
+	return await User.findOne({ email: currentUser.email }).exec()
 }
 
 const userCreate = async (parent, args, { req }) => {
@@ -31,7 +32,7 @@ const userUpdate = async (parent, args, { req }) => {
 
 module.exports = {
 	Query: {
-		me
+		profile
 	},
 	Mutation: {
 		userCreate,
