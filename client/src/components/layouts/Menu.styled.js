@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 import { Link } from 'react-router-dom'
-import { white } from '@styled/colors'
+import { black, white } from '@styled/colors'
 import { fontSizing } from '@styled/utils'
 
 export const Nav = styled.nav`
@@ -35,6 +35,7 @@ const menuItems = css`
 
 	&[data-user='true']:last-child {
 		background-color: ${white};
+		color: ${black};
 		border-radius: 4px;
 	}
 `

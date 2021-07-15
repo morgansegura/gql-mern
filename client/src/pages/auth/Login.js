@@ -56,7 +56,7 @@ const Login = () => {
 					// Send user info to MongoDB
 					userCreate()
 
-					history.push('/')
+					history.push('/profile')
 				})
 		} catch (error) {
 			console.log('login error', error)
@@ -80,7 +80,7 @@ const Login = () => {
 
 			// Send user info to MongoDB
 			userCreate()
-			history.push('/')
+			history.push('/profile')
 		})
 	}
 
@@ -101,8 +101,15 @@ const Login = () => {
 				setEmail={setEmail}
 				setPassword={setPassword}
 				handleSubmit={handleSubmit}
+				showEmailInput={true}
 				showPasswordInput={true}
 			/>
+			<s.ForgotPassword>
+				Forgot your password{' '}
+				<s.PasswordLink to="/password/forgot">
+					Reset it Here
+				</s.PasswordLink>
+			</s.ForgotPassword>
 		</s.Container>
 	)
 }

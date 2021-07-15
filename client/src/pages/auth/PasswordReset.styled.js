@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import { minwidth } from '@styled/widths'
 import { grey } from '@styled/colors'
 import { above, below, fontSizing } from '@styled/utils'
@@ -35,12 +34,3 @@ export const Title = styled.div`
 		color: ${grey[600]};
 	}
 `
-
-export const GoogleButton = styled.div`
-	position: absolute;
-	right: 0;
-`
-
-export const ForgotPassword = styled.div``
-
-export const PasswordLink = styled(Link)``

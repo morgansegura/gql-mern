@@ -35,7 +35,7 @@ const Register = () => {
 		})
 
 		window.localStorage.setItem('emailFormRegistration', email)
-		setEmail('')
+		// setEmail('')
 		setLoading(false)
 		history.push('/')
 	}

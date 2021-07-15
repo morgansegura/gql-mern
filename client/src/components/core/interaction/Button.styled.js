@@ -335,7 +335,6 @@ const btnColor = css`
 			} else {
 				return `
 
-
 					div span {
 						background-color: ${rgba(white, 0.75)};
 					}

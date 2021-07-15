@@ -3,11 +3,12 @@
         "baseUrl": ".",
         "paths": {
             "@src/*": ["src/*"],
-            "@components/*": ["src/components/*"],
             "@context/*": ["src/context/*"],
             "@core/*": ["src/components/core/*"],
+            "@icons/*": ["src/components/icons/*"],
             "@layouts/*": ["src/components/layous/*"],
             "@pages/*": ["src/pages/*"],
+            "@routes/*": ["src/components/routes/*"],
             "@styled/*": ["src/styled/*"]
         }
     },

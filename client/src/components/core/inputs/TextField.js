@@ -4,7 +4,7 @@ import { useState } from 'react'
 import * as s from './TextField.styled'
 
 const TextField = ({ disabled, label, type, value, ...props }) => {
-	const [focused, setFocused] = useState(false)
+	const [focused, setFocused] = useState(value !== '')
 
 	return (
 		<s.FormGroup

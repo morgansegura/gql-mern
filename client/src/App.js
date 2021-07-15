@@ -7,14 +7,25 @@ import { auth } from '@src/firebase'
 import { AuthContext } from '@context/authContext'
 
 // Layout Components
-import Navbar from '@layouts/Navbar'
+import Navbar from '@core/navigation/Navbar'
+
+// Layout Components
 import Menu from '@layouts/Menu'
 
 // Page Components
 import Home from '@pages/Home'
+import Post from '@src/pages/post/Post'
+
+// Auth Page Components
 import Login from '@pages/auth/Login'
 import Register from '@pages/auth/Register'
 import CompleteRegistration from '@pages/auth/CompleteRegistration'
+import PasswordReset from '@pages/auth/PasswordReset'
+import PasswordForgot from '@pages/auth/PasswordForgot'
+import Profile from '@pages/auth/Profile'
+
+// Route Components
+import PrivateRoute from '@routes/PrivateRoute'
 
 const Logo = () => {
 	return <div>Logo</div>
@@ -77,12 +88,19 @@ const App = () => {
 			label: 'Logout',
 			type: 'function',
 			user: user
+		},
+		{
+			id: 5,
+			path: '/profile',
+			label: 'Profile',
+			type: 'router',
+			user: user
 		}
 	]
 
 	return (
 		<ApolloProvider client={client}>
-			<Navbar>
+			<Navbar fill="teal" radius="lg">
 				<Menu
 					logo={<Logo />}
 					navItems={navItems}
@@ -92,12 +110,25 @@ const App = () => {
 
 			<Switch>
 				<Route exact path="/" component={Home} />
-				<Route path="/login" component={Login} />
-				<Route path="/register" component={Register} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/register" component={Register} />
 				<Route
+					exact
 					path="/complete-registration"
 					component={CompleteRegistration}
 				/>
+				<Route
+					exact
+					path="/password/forgot"
+					component={PasswordForgot}
+				/>
+				<PrivateRoute
+					exact
+					path="/password/reset"
+					component={PasswordReset}
+				/>
+				<PrivateRoute exact path="/profile" component={Profile} />
+				<PrivateRoute exact path="/post/create" component={Post} />
 			</Switch>
 		</ApolloProvider>
 	)

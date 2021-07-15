@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { white } from '@styled/colors'
+
+// Core Components
+import Button from '@core/interaction/Button'
+
+import { grey, white } from '@styled/colors'
 import { above, below } from '@styled/utils'
 import { rem, rgba } from 'polished'
 
@@ -81,4 +85,47 @@ export const ButtonGroup = styled.div`
 export const GoogleButton = styled.div`
 	position: absolute;
 	right: 0;
+`
+
+export const PasswordContainer = styled.div`
+	position: relative;
+`
+
+export const PasswordToggleButton = styled(Button)`
+	position: absolute;
+	z-index: 1;
+	background-color: transparent;
+	top: 50%;
+	right: 0.5rem;
+	transform: translateY(-50%);
+	padding: 0.5rem 0.5rem;
+	border-radius: 9999px;
+	overflow: hidden;
+
+	div:not(:last-child) {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+	}
+
+	div span {
+		background-color: ${grey[200]};
+	}
+
+	svg g {
+		fill: ${grey[200]};
+		transition: fill 0.3s ease-out;
+	}
+
+	&:hover {
+		svg g {
+			fill: ${grey[800]};
+		}
+	}
+
+	&:disabled:hover {
+		svg g {
+			fill: ${grey[200]};
+		}
+	}
 `
