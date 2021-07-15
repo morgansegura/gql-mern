@@ -1,4 +1,3 @@
-const { gql } = require('apollo-server-express')
 const shortid = require('shortid')
 const { authCheck } = require('../helpers/auth')
 const User = require('../models/user')
@@ -19,11 +18,23 @@ const userCreate = async (parent, args, { req }) => {
 		  }).save()
 }
 
+const userUpdate = async (parent, args, { req }) => {
+	const currentUser = await authCheck(req)
+	const updatedUser = await User.findOneAndUpdate(
+		{ email: currentUser.email },
+		{ ...args.input },
+		{ new: true }
+	).exec()
+
+	return updatedUser
+}
+
 module.exports = {
 	Query: {
 		me
 	},
 	Mutation: {
-		userCreate
+		userCreate,
+		userUpdate
 	}
 }

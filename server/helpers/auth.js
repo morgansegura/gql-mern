@@ -14,6 +14,6 @@ exports.authCheck = async req => {
 		return currentUser
 	} catch (error) {
 		console.log('AUTH CHECK ERROR', error)
-		throw new Error(error)
+		throw new Error('Invalid or expired token')
 	}
 }

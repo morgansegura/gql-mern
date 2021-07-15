@@ -18,6 +18,7 @@ const Register = () => {
 	const handleSubmit = async e => {
 		e.preventDefault()
 		setLoading(true)
+
 		const config = {
 			url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
 			handleCodeInApp: true
@@ -25,19 +26,12 @@ const Register = () => {
 		const result = await auth.sendSignInLinkToEmail(email, config)
 		console.log('result', result)
 
-		toast.success(`A confirmation was sent to ${email}.`, {
-			position: 'top-center',
-			icon: '👏',
-			ariaProps: {
-				role: 'status',
-				'aria-live': 'polite'
-			}
-		})
+		toast.success(`A confirmation was sent to ${email}.`)
 
 		window.localStorage.setItem('emailFormRegistration', email)
-		// setEmail('')
+		setEmail('')
 		setLoading(false)
-		history.push('/')
+		history.push('/login')
 	}
 
 	return (
@@ -50,7 +44,7 @@ const Register = () => {
 				loading={loading}
 				setEmail={setEmail}
 				handleSubmit={handleSubmit}
-				showPasswordInput={false}
+				showEmailInput={true}
 			/>
 		</s.Container>
 	)

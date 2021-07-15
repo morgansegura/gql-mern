@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { rem } from 'polished'
 import { NavLink } from 'react-router-dom'
 import { minwidth } from '@styled/widths'
 import { black, grey } from '@styled/colors'

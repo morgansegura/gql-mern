@@ -29,6 +29,7 @@ const btnBase = css`
 	z-index: 1;
 	cursor: pointer;
 	text-transform: uppercase;
+	letter-spacing: 0.02857em;
 	font-weight: 500;
 	overflow: hidden;
 	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,

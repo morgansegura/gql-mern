@@ -39,7 +39,7 @@ export const Input = styled.input`
 	box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
 		0px 4px 16px rgba(51, 51, 51, 0.08);
 	border-radius: 4px;
-	/* transition: all 0.3s ease-out; */
+	transition: box-shadow 0.3s ease-out;
 
 	&:hover {
 		box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { grey } from '@styled/colors'
 import { minwidth } from '@styled/widths'
 import { above, below } from '@styled/utils'
 import {

@@ -133,7 +133,6 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: ${family['default']};
-	letter-spacing: 0.0125em;
 	font-size: ${fz[400]};
 	line-height: 1;
 	color: ${black};
