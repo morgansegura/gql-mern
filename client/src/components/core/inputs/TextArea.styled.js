@@ -9,10 +9,13 @@ export const FormGroup = styled.div`
 
 export const Label = styled.label`
 	position: absolute;
+	top: 50%;
+	transform: translate(16px, -50%);
 	z-index: 2;
 	${fontSizing('15px', '24px')};
 	color: ${grey[400]};
 	pointer-events: none;
+	transition: all 0.3s ease-out;
 
 	${({ focused }) => {
 		if (focused) {
@@ -20,10 +23,7 @@ export const Label = styled.label`
 				${fontSizing('11px', '20px')};
 				top: 6px;
 				transform: translate(16px, 0);
-				transition: all 0.1s ease-out;
 			`
-		} else {
-			return `transition: all 0.3s ease-out;`
 		}
 	}}
 
@@ -36,7 +36,7 @@ export const Label = styled.label`
 	}}
 `
 
-export const Input = styled.input`
+export const Input = styled.textarea`
 	position: relative;
 	z-index: 0;
 	width: 100%;

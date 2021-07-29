@@ -23,7 +23,6 @@ const GET_ALL_POSTS = gql`
 `
 const Home = () => {
 	const { data, loading, error } = useQuery(GET_ALL_POSTS)
-
 	const { state, dispatch } = useContext(AuthContext)
 
 	let history = useHistory()
@@ -34,6 +33,7 @@ const Home = () => {
 			payload: 'morgansegura@gmail.com'
 		})
 	}
+	// console.log(updateUserName)
 
 	// if (loading) {
 	// 	toast.loading('Loading...')

@@ -5,6 +5,8 @@
             "@src/*": ["src/*"],
             "@context/*": ["src/context/*"],
             "@core/*": ["src/components/core/*"],
+            "@graphql/*": ["src/graphql/*"],
+            "@helpers/*": ["src/helpers/*"],
             "@icons/*": ["src/components/icons/*"],
             "@layouts/*": ["src/components/layous/*"],
             "@pages/*": ["src/pages/*"],

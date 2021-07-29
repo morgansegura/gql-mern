@@ -1,23 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { isEmpty } from '@helpers/utils'
 
 // Styled
 import * as s from './TextField.styled'
 
 const TextField = ({ disabled, label, type, value, ...props }) => {
-	const [focused, setFocused] = useState(value !== '')
+	const [focused, setFocused] = useState(false)
+	const hasValue = !isEmpty(value)
 
 	return (
-		<s.FormGroup
-			data-id={props.id || type}
-			data-focused={focused}
-			data-disabled={disabled}>
-			<s.Label>{label}</s.Label>
+		<s.FormGroup data-id={props.id || type}>
+			<s.Label focused={focused || hasValue} disabled={disabled}>
+				{label}
+			</s.Label>
 			<s.Input
+				focused={focused || hasValue}
+				disabled={disabled}
 				type={type}
 				value={value}
 				onFocus={() => setFocused(true)}
-				onBlur={() => (value === '' || !focused) && setFocused(false)}
-				disabled={disabled}
+				onBlur={() => setFocused(false)}
 				{...props}
 			/>
 		</s.FormGroup>

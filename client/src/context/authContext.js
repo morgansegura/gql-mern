@@ -29,12 +29,12 @@ const AuthProvider = ({ children }) => {
 				const idTokenResult = await user.getIdTokenResult()
 
 				dispatch({
-					typed: 'LOGGED_IN_USER',
+					type: 'LOGGED_IN_USER',
 					payload: { email: user.email, token: idTokenResult.token }
 				})
 			} else {
 				dispatch({
-					typed: 'LOGGED_IN_USER',
+					type: 'LOGGED_IN_USER',
 					payload: null
 				})
 			}

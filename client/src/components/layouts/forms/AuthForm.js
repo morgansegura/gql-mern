@@ -34,9 +34,6 @@ const AuthForm = ({
 				: true
 			: false
 
-	console.log(email)
-	console.log('disabled button', disableButton)
-
 	const passwordVisible = showPassword ? 'text' : 'password'
 
 	const handleTogglePasswordVisible = e => {

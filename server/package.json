@@ -14,6 +14,8 @@
 		"@graphql-tools/merge": "^6.2.14",
 		"apollo-server": "^2.25.2",
 		"apollo-server-express": "^2.25.2",
+		"cloudinary": "^1.26.2",
+		"cors": "^2.8.5",
 		"dotenv": "^10.0.0",
 		"express": "^4.17.1",
 		"firebase-admin": "^9.10.0",

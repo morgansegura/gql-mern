@@ -35,7 +35,7 @@ module.exports = gql`
 
 	input UserUpdateInput {
 		username: String
-		email: String
+		email: String!
 		name: String
 		images: [ImageInput]
 		about: String
